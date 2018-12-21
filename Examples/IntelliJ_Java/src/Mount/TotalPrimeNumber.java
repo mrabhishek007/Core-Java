@@ -1,0 +1,43 @@
+import java.util.*;
+
+class TotalPrimeNumber {
+
+	public static int  totalPrime(int beg, int last){
+
+			int count=0;
+
+			for(int i = beg+1 ; i < last; i++){
+
+				int init = 2 ;
+				
+				while (init < i)
+				{
+					if(i%init == 0){
+						count++ ;
+						break;
+					} 
+					init++;
+				}
+
+			}
+
+			int totalTastedNum = last - (beg+1) ;
+			int totalPrime = totalTastedNum - count ; 
+
+			return totalPrime ;	
+	}
+
+
+	public static void main(String[] args) 
+	{
+		Scanner s  = new Scanner(System.in);
+		int beg = s.nextInt();
+		int end = s.nextInt();
+
+		int total = totalPrime(beg, end);
+
+		System.out.println("Total prime no btwn " + beg + " and " + end + " are :" + total);
+
+	}
+
+}

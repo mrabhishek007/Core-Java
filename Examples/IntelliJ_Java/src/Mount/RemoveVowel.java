@@ -1,0 +1,44 @@
+
+import java.util.*;
+
+class RemoveVowel 
+{
+
+	public static StringBuilder getOnlyConsonent(String sentence){
+	
+		StringBuilder builder = new StringBuilder() ;
+
+		String[] vowels = {"a", "e", "i", "o", "u"};
+		
+		for(int i=0 ; i<sentence.length() ; i++){
+
+			for(int j=0 ; j<vowels.length; j++){
+			
+				if( vowels[j].equalsIgnoreCase( sentence.charAt(i)+"" ) ){
+				
+					break;
+				}
+
+				
+				if(j == vowels.length-1){
+					
+					builder.append(sentence.charAt(i));
+				}
+			}
+		
+		}
+	return builder;
+	}
+
+
+	public static void main(String[] args) 
+	{
+		Scanner scan = new Scanner(System.in);
+		String word = scan.nextLine();
+
+		StringBuilder newWord = getOnlyConsonent(word);
+
+		System.out.println(" New Word : " + newWord);
+
+	}
+}

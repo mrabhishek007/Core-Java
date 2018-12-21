@@ -1,0 +1,76 @@
+class  AlternateSortDemo
+{
+	//Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order
+  
+  
+  public static void AlternateSort()
+	{
+
+      int start=0; 
+       int x[] = {26,45,78,0,3,87,49,822,764};
+	   int n = x.length;
+
+	   for(int i=0;i<(n-1);i++)//swapping will be (n-1) times
+		{
+		   for(int j=start+1;j<n;j++)
+			{
+			   if(x[start]>x[j])
+				{
+				   int temp = x[j];
+				   x[j] = x[start];
+				   x[start] = temp;
+				   ++start;
+			   
+			    }
+				else
+				{
+				 ++start;
+				}
+		    }
+
+			start = 0;
+   
+	    }
+
+		int  alternate_data[] = new int[n];
+		boolean flag =false;
+		int count_end=n-1;
+		int count_beg=0;
+		
+		for(int i=0;i<n;i++)
+		{
+			if(flag==false)
+			{
+			alternate_data[i] =x[count_end];
+				--count_end;
+			flag=true;
+			}
+			else
+			{
+			alternate_data[i]=x[count_beg];
+			++count_beg;
+			flag=false;
+			}
+		
+		
+		}
+
+
+       System.out.print("[");
+		for(int z:alternate_data)
+		{
+		  System.out.print(z+",");
+		}
+		System.out.println("]");
+
+  
+    }
+
+
+
+	public static void main(String[] args) 
+	{
+		AlternateSort();
+
+	}
+}
